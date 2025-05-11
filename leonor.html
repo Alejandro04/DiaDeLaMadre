@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para mi amada Leonor | Feliz Día de la Madre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :root {
+        --color-primary: #e0597c;
+        --color-secondary: #f7c8e0;
+        --color-accent: #985277;
+        --color-background: #fef7fa;
+        --color-text: #3d3d3d;
+        --shadow-soft: 0 10px 30px rgba(224, 89, 124, 0.1);
+        --shadow-medium: 0 15px 35px rgba(224, 89, 124, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: var(--color-background);
+        color: var(--color-text);
+        overflow-x: hidden;
+      }
+
+      .font-dancing {
+        font-family: 'Dancing Script', cursive;
+      }
+
+      .font-playfair {
+        font-family: 'Playfair Display', serif;
+      }
+
+      .container {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+        overflow: hidden;
+      }
+
+      .background-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .bg-element {
+        position: absolute;
+        opacity: 0.5;
+      }
+
+      .bg-element-1 {
+        top: 5%;
+        left: 5%;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .bg-element-2 {
+        bottom: 10%;
+        right: 5%;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 10s ease-in-out infinite;
+        animation-delay: 2s;
+      }
+
+      .bg-element-3 {
+        top: 40%;
+        left: 12%;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+
+      .bg-element-4 {
+        top: 25%;
+        right: 15%;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: float 7s ease-in-out infinite;
+        animation-delay: 3s;
+      }
+
+      .header {
+        text-align: center;
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: var(--color-accent);
+        margin-bottom: 0.5rem;
+      }
+
+      .date {
+        font-size: 1rem;
+        color: var(--color-accent);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .date i {
+        color: var(--color-primary);
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 800px;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: var(--shadow-medium);
+        overflow: hidden;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .photo-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        background: linear-gradient(to bottom, var(--color-secondary) 0%, white 100%);
+        position: relative;
+      }
+
+      .photo-frame {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        border: 8px solid white;
+        overflow: hidden;
+        box-shadow: var(--shadow-medium);
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .photo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-name {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .photo-caption {
+        font-size: 1.1rem;
+        color: var(--color-accent);
+        text-align: center;
+        max-width: 80%;
+      }
+
+      .message-section {
+        padding: 2.5rem;
+      }
+
+      .message-content {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        letter-spacing: 0.3px;
+      }
+
+      .message-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      .message-signature {
+        margin-top: 2rem;
+        text-align: right;
+      }
+
+      .signature-text {
+        font-size: 1.8rem;
+        color: var(--color-primary);
+      }
+
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .floating-element {
+        position: absolute;
+        opacity: 0.8;
+      }
+
+      .heart {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+      }
+
+      .heart-1 {
+        top: 15%;
+        left: 10%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .heart-2 {
+        top: 25%;
+        right: 15%;
+        animation: float 8s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+
+      .heart-3 {
+        bottom: 20%;
+        left: 20%;
+        animation: float 7s ease-in-out infinite;
+        animation-delay: 2s;
+      }
+
+      .heart-4 {
+        bottom: 30%;
+        right: 10%;
+        animation: float 9s ease-in-out infinite;
+        animation-delay: 3s;
+      }
+
+      .flower {
+        font-size: 1.8rem;
+        color: var(--color-secondary);
+      }
+
+      .flower-1 {
+        top: 40%;
+        left: 5%;
+        animation: float 9s ease-in-out infinite;
+        animation-delay: 1.5s;
+      }
+
+      .flower-2 {
+        top: 10%;
+        right: 20%;
+        animation: float 7s ease-in-out infinite;
+        animation-delay: 2.5s;
+      }
+
+      .flower-3 {
+        bottom: 15%;
+        right: 25%;
+        animation: float 8s ease-in-out infinite;
+        animation-delay: 0.5s;
+      }
+
+      .footer {
+        margin-top: 2rem;
+        text-align: center;
+        color: var(--color-accent);
+        font-size: 0.9rem;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(5deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+      }
+
+      @keyframes heartbeat {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.2); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+      }
+
+      @media (max-width: 768px) {
+        .title {
+          font-size: 2.5rem;
+        }
+        
+        .photo-frame {
+          width: 220px;
+          height: 220px;
+        }
+        
+        .photo-name {
+          font-size: 2rem;
+        }
+        
+        .message-content {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .title {
+          font-size: 2rem;
+        }
+        
+        .photo-frame {
+          width: 180px;
+          height: 180px;
+        }
+        
+        .photo-name {
+          font-size: 1.8rem;
+        }
+        
+        .message-section {
+          padding: 1.5rem;
+        }
+        
+        .message-content {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="background-elements">
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        <div class="bg-element bg-element-3"></div>
+        <div class="bg-element bg-element-4"></div>
+      </div>
+
+      <header class="header">
+        <h1 class="title font-dancing">Feliz Día de las Madres</h1>
+        <p class="subtitle font-playfair">Para la madre más maravillosa y esposa excepcional</p>
+        <p class="date">
+          11 de Mayo de 2025 <i class="ri-heart-fill"></i>
+        </p>
+      </header>
+
+      <main class="card">
+        <div class="photo-section">
+          <div class="photo-frame">
+            <img src="assets/leonor.jpg" alt="Mi esposa Leonor" class="photo-img" />
+          </div>
+          <h2 class="photo-name font-dancing">Leonor</h2>
+          <p class="photo-caption font-playfair">Con amor infinito para mi compañera de vida y madre de nuestra hija</p>
+        </div>
+
+        <div class="message-section">
+          <div class="message-content">
+            <p>Mi amada Leonor,</p>
+            
+            <p>En este día tan especial, celebramos no solo a la madre extraordinaria que eres para Ana Lucia, sino también a la mujer maravillosa que ilumina nuestros días.</p>
+            
+            <p>Tu dedicación, paciencia y amor incondicional han creado un hogar lleno de alegría y valores. Cada día nos enseñas el verdadero significado del amor y la familia con tus acciones.</p>
+            
+            <div class="message-signature">
+              <p class="signature-text font-dancing">Con amor eterno,</p>
+              <p class="font-dancing">Tu esposo y Ana Lucia</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p>♥ Por ser el corazón de nuestra familia ♥</p>
+      </footer>
+
+      <div class="floating-elements">
+        <div class="floating-element heart heart-1">
+          <i class="ri-heart-fill"></i>
+        </div>
+        <div class="floating-element heart heart-2">
+          <i class="ri-heart-fill"></i>
+        </div>
+        <div class="floating-element heart heart-3">
+          <i class="ri-heart-fill"></i>
+        </div>
+        <div class="floating-element heart heart-4">
+          <i class="ri-heart-fill"></i>
+        </div>
+        
+        <div class="floating-element flower flower-1">
+          <i class="ri-flower-line"></i>
+        </div>
+        <div class="floating-element flower flower-2">
+          <i class="ri-flower-line"></i>
+        </div>
+        <div class="floating-element flower flower-3">
+          <i class="ri-flower-line"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
